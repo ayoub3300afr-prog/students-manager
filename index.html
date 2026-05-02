@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentWeb Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo_black.jpeg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+
+<!-- ══════ SIDEBAR ══════ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+  <div class="brand-logo">
+  Student<span>Web</span>
+  <span class="brand-manager">Manager</span>
+  </div>    <div class="brand-sub">Administration</div>
+  </div>
+
+  <nav class="nav-section">
+    <div class="nav-label">Main</div>
+    <button class="nav-item active" data-page="Dashboard">
+      <i class="nav-icon fa-solid fa-house-chimney"></i>Dashboard
+    </button>
+    <button class="nav-item" data-page="Students">
+      <i class="nav-icon fa-solid fa-user-group"></i>Students
+    </button>
+    <button class="nav-item" data-page="Notes">
+      <i class="nav-icon fa-solid fa-clipboard-list"></i>Notes
+    </button>
+    <button class="nav-item" data-page="Attendance">
+      <i class="nav-icon fa-solid fa-clock"></i>Attendance
+    </button>
+    <button class="nav-item" data-page="Courses">
+      <i class="nav-icon fa-solid fa-book"></i>Courses
+    </button>
+    <button class="nav-item" data-page="Calendar">
+      <i class="nav-icon fa-solid fa-calendar-days"></i>Calendar
+    </button>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="user-avatar-sm">AA</div>
+      <div class="user-info">
+        <div class="user-name">Ayoub Afroukh</div>
+        <div class="user-email">ayoubafr@gmail.com</div>
+      </div>
+      <a href="login.html" title="Sign out">
+        <i class="logout-icon fa-solid fa-right-from-bracket"></i>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- ══════ MAIN WRAPPER ══════ -->
+<div class="main-wrapper">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="search-wrap">
+      <i class="fa-solid fa-search"></i>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search students, IDs, courses…">
+    </div>
+
+    <div class="topbar-right">
+      <span class="topbar-breadcrumb">
+        Dashboard <span class="bc-sep">›</span>
+        <span class="bc-current" id="bcCurrent">Overview</span>
+      </span>
+      <!-- LIGHT MODE TOGGLE -->
+      <button class="btn-theme" id="themeToggle" title="Toggle light/dark mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="btn-add" id="btnAddStudent">
+        <i class="fa-solid fa-user-plus"></i>
+        <span>Add Student</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main id="pageMain"></main>
+</div>
+
+<!-- ══════ MODAL: ADD / EDIT STUDENT ══════ -->
+<div class="modal-backdrop" id="modalStudent">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modalStudentTitle">Add New Student</span>
+      <button class="modal-close" id="modalStudentClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row-2">
+        <div class="form-row">
+          <label class="form-label">First Name</label>
+          <input class="form-input" id="fName" type="text" placeholder="e.g. Emma">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" id="fName2" type="text" placeholder="e.g. Johnson">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Major / Program</label>
+        <select class="form-select" id="fMajor"><option value="">Select major…</option></select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Status</label>
+        <select class="form-select" id="fStatus">
+          <option value="Active">Active</option>
+          <option value="On Leave">On Leave</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" id="modalStudentCancel">Cancel</button>
+      <button class="btn-submit" id="modalStudentSubmit">Add Student</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ MODAL: VIEW STUDENT ══════ -->
+<div class="modal-backdrop" id="modalView">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Student Details</span>
+      <button class="modal-close" id="modalViewClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="view-hero">
+      <div class="view-avatar" id="viewAvatar"></div>
+      <div>
+        <div class="view-name" id="viewName"></div>
+        <div class="view-id"   id="viewId"></div>
+      </div>
+    </div>
+    <div class="view-grid">
+      <div class="view-field">
+        <div class="view-field-label">Major</div>
+        <div class="view-field-val" id="viewMajor"></div>
+      </div>
+      <div class="view-field">
+        <div class="view-field-label">Attendance</div>
+        <span id="viewAtt" class="badge"></span>
+      </div>
+      <div class="view-field">
+        <div class="view-field-label">Status</div>
+        <span id="viewStatus" class="badge"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

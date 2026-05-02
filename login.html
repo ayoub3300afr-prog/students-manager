@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduMonitor — Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link rel="icon" type="image/png" href="logo_black.jpeg">
+</head>
+<body>
+
+  <aside class="left-panel">
+    <div class="left-overlay"></div>
+
+    <div class="left-top">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-square brand-sq1"></i>
+          <i class="fa-solid fa-square brand-sq2"></i>
+        </div>
+        <span class="brand-name">StudentWeb Manager</span>
+      </div>
+      <div class="brand-bar"></div>
+    </div>
+
+    <div class="left-bottom">
+      <blockquote class="left-quote">
+        "Education is the passport to the future, for tomorrow belongs to those who prepare for it today."
+      </blockquote>
+      <cite class="left-cite">— Ayoub Afr</cite>
+    </div>
+  </aside>
+
+
+  <main class="right-panel">
+
+    <div class="lang-select">
+      <i class="fa-solid fa-globe"></i>
+      <span>English</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+    <div class="form-card">
+
+      <h1 class="form-title">Welcome back</h1>
+      <p class="form-sub">Securely access your classroom dashboard.</p>
+
+      <div class="role-tabs" id="roleTabs">
+        <button class="role-tab active" data-role="teacher">Teacher</button>
+        <button class="role-tab"        data-role="admin">Admin</button>
+      </div>
+
+      <div class="field-group" id="emailGroup">
+        <label class="field-label" for="email">Email Address</label>
+        <div class="field-wrap">
+          <i class="fa-solid fa-envelope field-icon"></i>
+          <input class="field-input" id="email" type="email"
+            placeholder="name@school.edu" autocomplete="email" />
+        </div>
+        <span class="field-error" id="emailError"></span>
+      </div>
+
+      <div class="field-group" id="passwordGroup">
+        <label class="field-label" for="password">Password</label>
+        <div class="field-wrap">
+          <i class="fa-solid fa-lock field-icon"></i>
+          <input class="field-input" id="password" type="password"
+            placeholder="Enter your password" autocomplete="current-password" />
+          <button class="eye-btn" id="eyeBtn" type="button" tabindex="-1">
+            <i class="fa-solid fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+        <span class="field-error" id="pwError"></span>
+      </div>
+
+      <div class="form-extras">
+        <label class="remember-label">
+          <input type="checkbox" id="remember" />
+          Remember device
+        </label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <button class="btn-signin" id="signInBtn">Sign In</button>
+
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">Or continue with</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <button class="btn-google">
+        <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Sign in with Google
+      </button>
+
+      <p class="tos-text">
+        By signing in, you agree to our
+        <a href="#" class="tos-link">Terms of Service</a> and
+        <a href="#" class="tos-link">Privacy Policy</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

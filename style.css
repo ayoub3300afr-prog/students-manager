@@ -498,7 +498,7 @@ body.light .tb-btn:hover { border-color: #5468d4; background: rgba(108,164,186,.
 
 .tb-btn.primary { background: linear-gradient(135deg, #4C8FA2, #386779); border-color: rgba(108,164,186,.25); color: #d4e8ef; }
 .tb-btn.primary:hover { opacity: .88; }
-body.light .tb-btn.primary { background: linear-gradient(135deg, #4a5fc4 0%, #3648a8 100%); }
+body.light .tb-btn.primary { background: linear-gradient(135deg, #4a5fc4 0%, #3648a8 100%);color: white; }
 
 .tb-count { margin-left: auto; font-family: 'Open Sans', sans-serif; font-size: 12px; color: #386779; white-space: nowrap; }
 body.light .tb-count { color: #7b8dd4; }
